@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Utanger | Sign Up{% endblock %}
+
+{% block nav %}
+    <form class="m-0 p-0" action="{% url 'home' %}" method="GET" class="nav-btn-form">
+        {% csrf_token %}
+        <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Back</button>
+    </form>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="text-4xl p-5 font-bold">Sign Up to Utanger</h1>
+        <div>
+            <form class="m-0 p-0 flex flex-col justify-center items-center" method="POST">
+                {% csrf_token %}
+                <table class="mt-2 mb-5">
+                    <tr>
+                        <td><label class="text-lg" for="id_username">Username:</label></td>
+                        <td class="p-2">
+                            <input class="ml-4 p-1 border border-white rounded" type="text" name="username" maxlength="150" autofocus="" required="" aria-describedby="id_username_helptext" id="id_username">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="text-lg" for="id_email">Email:</label></td>
+                        <td class="p-2">
+                            <input class="ml-4 p-1 border border-white rounded" type="email" name="email" maxlength="320" required="" id="id_email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="text-lg" for="id_password1">Password:</label></td>
+                        <td class="p-2">
+                            <input class="ml-4 p-1 border border-white rounded" type="password" name="password1" autocomplete="new-password" required="" aria-describedby="id_password1_helptext" id="id_password1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="text-lg" for="id_password2">Password confirmation:</label></td>
+                        <td class="p-2">
+                            <input class="ml-4 p-1 border border-white rounded" type="password" name="password2" autocomplete="new-password" required="" aria-describedby="id_password2_helptext" id="id_password2">
+                        </td>
+                    </tr>
+                </table>
+                <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Sign Up and Login</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% load static %}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% tailwind_css %}
+</head>
+<body class="bg-gray-800 h-screen text-white"> 
+    <header>
+        <nav class="flex justify-end gap-x-4 p-4 text-white">
+            {% block nav %}
+            {% endblock %}
+        </nav>
+    </header>
+
+    <main class="flex justify-center align-center">
+        <div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div>
+                        <p class="msg text-center text-red-500">{{ message }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+
+    <footer class="fixed w-screen bottom-0 text-center p-4">
+        <p>&copy; 2026 gingerking</p>
+    </footer>
+
+    <script src="{% static 'js/scripts.js' %}" defer></script>
+</body>
+</html>

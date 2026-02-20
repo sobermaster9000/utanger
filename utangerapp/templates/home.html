@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Utanger{% endblock %}
+
+{% block nav %}
+    {% if user.is_authenticated %}
+        <form class="m-0 p-0" action="{% url 'dashboard' %}" method="GET" class="nav-btn-form">
+            {% csrf_token %}
+            <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Dashboard</button>
+        </form>
+        <form class="m-0 p-0" action="{% url 'logout' %}" method="GET" class="nav-btn-form">
+            {% csrf_token %}
+            <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Logout</button>
+        </form>
+    {% else %}
+        <form class="m-0 p-0" action="{% url 'login' %}" method="GET" class="nav-btn-form">
+            {% csrf_token %}
+            <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Login</button>
+        </form>
+        <form class="m-0 p-0" action="{% url 'signup' %}" method="GET" class="nav-btn-form">
+            {% csrf_token %}
+            <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Sign Up</button>
+        </form>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <div class="text-center">
+            <h1 class="text-9xl p-5 bold">Utanger</h1>
+            <h2 class="text-4xl p-5 italic">Your Personal Utang Tracker</h2>
+        </div>
+        <div class="w-2xl">
+            <p class="text-xl p-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ex, porta non purus vitae, vulputate luctus nibh. Quisque at blandit diam. Suspendisse pharetra eleifend eros, sit amet porta arcu accumsan sed.</p>
+        </div>
+    </div>
+{% endblock %}

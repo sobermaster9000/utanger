@@ -1,0 +1,50 @@
+/* :root {
+    --col1: #1f1300;
+    --col2: #00b8e6;
+    --col3: #e3f09b;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: black;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.2em;
+}
+
+main {
+    top: 5rem;
+    margin: 6rem 4rem 2rem 4rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+} */
+
+.add-utang-form {
+    display: none;
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Utanger | Login{% endblock %}
+
+{% block nav %}
+    <form class="m-0 p-0" action="{% url 'home' %}" method="GET" class="nav-btn-form">
+        {% csrf_token %}
+        <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Back</button>
+    </form>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="text-4xl p-5 font-bold">Login to Utanger</h1>
+        <div>
+            <form class="m-0 p-0 flex flex-col justify-center items-center" method="POST">
+                {% csrf_token %}
+                <table class="mt-2 mb-5">
+                    <tr>
+                        <td><label class="text-lg" for="id_username">Username:</label></td>
+                        <td class="p-2">
+                            <input class="ml-4 p-1 border border-white rounded" type="text" name="username" maxlength="128" id="id_username">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="text-lg" for="id_password">Password:</label></td>
+                        <td class="p-2">
+                            <input class="ml-4 p-1 border border-white rounded" type="password" name="password" maxlength="128" id="id_password">
+                        </td>
+                    </tr>
+                </table>
+                <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

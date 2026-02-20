@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Utanger | Home{% endblock %}
+
+{% block nav %}
+    <form class="m-0 p-0" action="{% url 'logout' %}" method="GET" class="nav-btn-form">
+        {% csrf_token %}
+        <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Logout</button>
+    </form>
+    <form class="m-0 p-0" action="{% url 'home' %}" method="GET" class="nav-btn-form">
+        {% csrf_token %}
+        <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Back</button>
+    </form>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="mb-5 text-5xl font-bold">Welcome {{ user.username }}!</h1>
+        <div class="flex w-full mb-5">
+            <!-- todo: fix width sizes -->
+            <div class="flex-1 w-lg">
+                <h3 class="text-xl text-center bold">Utang to you: ₱₱₱</h3>
+                <div class="flex justify-center align-center">
+                    <button id="add-utang1-toggle1" class="w-1/2 h-9/10 m-2 pb-1 text-lg text-center text-green-500 border-2 rounded border-green-500 cursor-pointer" title="Add Utang">+</button>
+                </div>
+
+                <div id="add-utang1" class="hidden m-2 p-2 border-2 rounded border-green-500">
+                    <div class="flex justify-end">
+                        <button id="add-utang1-toggle2" class="text-xs text-red-500 hover:text-red-600">X&nbsp&nbsp</button>
+                    </div>
+                    <form id="add-utang1-form">
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td><input id="utang1-name" name="name" type="text" placeholder="Name" class="m-1 p-1 rounded bg-gray-600"></td>
+                                <td><input id="utang1-amount" name="amount" type="number" step="0.01" placeholder="Amount" class="m-1 p-1 rounded bg-gray-600"></td>
+                            </tr>
+                            <tr>
+                                <td><input id="utang1-email" name="email" type="email" placeholder="Email" class="m-1 p-1 rounded bg-gray-600"></td>
+                                <td>
+                                    <div class="flex justify-center align-center">
+                                        <button id="add-utang1-btn" class="text-green-500 hover:text-green-600" type="submit">ADD UTANG</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+                <div id="utangs-to-user" class="m-2 p-2 border-2 rounded border-white text-gray-800"></div>
+            </div>
+            <div class="flex-1 w-lg">
+                <h3 class="text-xl text-center bold">Utang by you: ₱₱₱</h3>
+                <div class="flex justify-center align-center">
+                    <button id="add-utang2-toggle1" class="w-1/2 h-9/10 m-2 pb-1 text-lg text-center text-green-500 border-2 rounded border-green-500 cursor-pointer" title="Add Utang">+</button>
+                </div>
+
+                <div id="add-utang2" class="hidden m-2 p-2 border-2 rounded border-green-500">
+                    <div class="flex justify-end">
+                        <button id="add-utang2-toggle2" class="text-xs text-red-500 hover:text-red-600">X&nbsp&nbsp</button>
+                    </div>
+                    <form id="add-utang2-form">
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td><input id="utang2-name" name="name" type="text" placeholder="Name" class="m-1 p-1 rounded bg-gray-600"></td>
+                                <td><input id="utang2-amount" name="amount" type="number" step="0.01" placeholder="Amount" class="m-1 p-1 rounded bg-gray-600"></td>
+                            </tr>
+                        </table>
+                        <div class="flex justify-center align-center">
+                            <button id="add-utang2-btn" class="text-green-500 hover:text-green-600">ADD UTANG</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div>
+                    <div id="utangs-by-user" class="m-2 p-2 border-2 rounded border-white text-gray-800"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
