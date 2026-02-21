@@ -114,7 +114,7 @@ async function getUtangs(isUtangToUser, freeDivId, currentDivId) {
                         <input class="utang-id" type="hidden" name="utangId" value="${utang.id}">
                         <button class="float-right cursor-pointer" type="submit" title="Delete Utang">X</button>
                     </form>
-                    <p class="text-lg font-bold">
+                    <p class="text-xs sm:text-base font-bold">
                         <span class="italic underline">${utang.name}</span>
                         | ₱${utang.amount}
                     </p>

@@ -8,15 +8,15 @@
     <title>{% block title %}{% endblock %}</title>
     {% tailwind_css %}
 </head>
-<body class="bg-gray-800 h-screen text-white"> 
+<body class="flex flex-col min-h-screen bg-gray-800 text-white"> 
     <header>
-        <nav class="flex justify-end gap-x-4 p-4 text-white">
+        <nav class="flex flex-col sm:flex-row items-end justify-end gap-2 sm:gap-x-4 p-4 text-xs sm:text-base text-white">
             {% block nav %}
             {% endblock %}
         </nav>
     </header>
 
-    <main class="flex justify-center align-center">
+    <main class="flex flex-grow justify-center align-center pb-5">
         <div>
             {% if messages %}
                 {% for message in messages %}
@@ -30,8 +30,8 @@
         </div>
     </main>
 
-    <footer class="fixed w-screen bottom-0 text-center p-4">
-        <p>&copy; 2026 gingerking</p>
+    <footer class="w-screen p-4 text-xs sm:text-base text-center">
+        <p>&copy; 2026 gingerking, aaroi</p>
     </footer>
 
     <script src="{% static 'js/scripts.js' %}" defer></script>

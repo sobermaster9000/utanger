@@ -11,25 +11,19 @@
 
 {% block content %}
     <div>
-        <h1 class="text-4xl p-5 font-bold">Login to Utanger</h1>
+        <h1 class="text-2xl sm:text-4xl p-5 font-bold text-center">Login to Utanger</h1>
         <div>
-            <form class="m-0 p-0 flex flex-col justify-center items-center" method="POST">
+            <form class="m-0 p-0 flex flex-col gap-4 justify-center items-center" method="POST">
                 {% csrf_token %}
-                <table class="mt-2 mb-5">
-                    <tr>
-                        <td><label class="text-lg" for="id_username">Username:</label></td>
-                        <td class="p-2">
-                            <input class="ml-4 p-1 border border-white rounded" type="text" name="username" maxlength="128" id="id_username">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label class="text-lg" for="id_password">Password:</label></td>
-                        <td class="p-2">
-                            <input class="ml-4 p-1 border border-white rounded" type="password" name="password" maxlength="128" id="id_password">
-                        </td>
-                    </tr>
-                </table>
-                <button class="bg-green-500 hover:bg-green-600 font-bold py-2 px-4 rounded cursor-pointer" type="submit">Login</button>
+                <div class="flex flex-col">
+                    <label class="text-sm sm:text-base" for="id_username">Username:</label>
+                    <input class="p-1 text-sm sm:text-base border border-white rounded" type="text" name="username" maxlength="128" id="id_username">
+                </div>
+                <div class="flex flex-col">
+                    <label class="text-sm sm:text-base" for="id_password">Password:</label>
+                    <input class="p-1 text-sm sm:text-base border border-white rounded" type="password" name="password" maxlength="128" id="id_password">
+                </div>
+                <button class="bg-green-500 hover:bg-green-600 m-2 py-2 px-4 text-xs sm:text-base font-bold rounded cursor-pointer" type="submit">Login</button>
             </form>
         </div>
     </div>
