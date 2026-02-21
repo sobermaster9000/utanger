@@ -17,19 +17,19 @@
                 {% csrf_token %}
                 <div class="flex flex-col">
                     <label class="text-sm sm:text-base" for="id_username">Username:</label>
-                    <input class="p-1 text-sm sm:text-base border border-white rounded" type="text" name="username" maxlength="150" autofocus="" required="" aria-describedby="id_username_helptext" id="id_username">
+                    <input class="p-1 text-sm sm:text-base border border-white rounded" type="text" name="username" maxlength="128" autofocus="" required="" aria-describedby="id_username_helptext" id="id_username">
                 </div>
                 <div class="flex flex-col">
                     <label class="text-sm sm:text-base" for="id_email">Email:</label>
-                    <input class="p-1 text-sm sm:text-base border border-white rounded" type="email" name="email" maxlength="320" required="" id="id_email">
+                    <input class="p-1 text-sm sm:text-base border border-white rounded" type="email" name="email" maxlength="128" required="" id="id_email">
                 </div>
                 <div class="flex flex-col">
                     <label class="text-sm sm:text-base" for="id_password1">Password:</label>
-                    <input class="p-1 text-sm sm:text-base border border-white rounded" type="password" name="password1" autocomplete="new-password" required="" aria-describedby="id_password1_helptext" id="id_password1">
+                    <input class="p-1 text-sm sm:text-base border border-white rounded" type="password" name="password1" maxlength="128" autocomplete="new-password" required="" aria-describedby="id_password1_helptext" id="id_password1">
                 </div>
                 <div class="flex flex-col">
                     <label class="text-sm sm:text-base" for="id_password2">Password confirmation:</label>
-                    <input class="p-1 text-sm sm:text-base border border-white rounded" type="password" name="password2" autocomplete="new-password" required="" aria-describedby="id_password2_helptext" id="id_password2">
+                    <input class="p-1 text-sm sm:text-base border border-white rounded" type="password" name="password2" maxlength="128" autocomplete="new-password" required="" aria-describedby="id_password2_helptext" id="id_password2">
                 </div>
                 <button class="bg-green-500 hover:bg-green-600 m-2 py-2 px-4 text-xs sm:text-base font-bold rounded cursor-pointer" type="submit">Sign Up and Login</button>
             </form>
