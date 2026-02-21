@@ -88,6 +88,9 @@ async function getUtangs(isUtangToUser, freeDivId, currentDivId) {
             </div>`
         );
 
+        document.getElementById(isUtangToUser ? 'utangs-to-total' : 'utangs-by-total')
+            .textContent = '...';
+
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -96,7 +99,7 @@ async function getUtangs(isUtangToUser, freeDivId, currentDivId) {
 
         const utangs = await response.json();
         console.log(utangs)
-        
+
         utangsContainer.replaceChildren();
         var utangDivId = freeDivId;
         if (utangs.length === 0) {
@@ -104,9 +107,13 @@ async function getUtangs(isUtangToUser, freeDivId, currentDivId) {
             <div class="mb-2 pl-2 pr-2 pt-1 pb-1 text-center text-white">
                 No utangs yet.
             </div>`
-        );
+            );
+            document.getElementById(isUtangToUser ? 'utangs-to-total' : 'utangs-by-total')
+                .textContent = '0';
         }
         else {
+            let totalUtangs = 0;
+
             utangs.forEach(utang => {
                 const newUtang = `
                 <div id="utang-div-${utangDivId}" class="mb-2 pl-2 pr-2 pt-1 pb-1 rounded bg-white">
@@ -128,8 +135,12 @@ async function getUtangs(isUtangToUser, freeDivId, currentDivId) {
                     deleteUtang(deleteUtangForm);
                 });
     
+                totalUtangs += parseFloat(utang.amount);
                 utangDivId++;
             });
+
+            document.getElementById(isUtangToUser ? 'utangs-to-total' : 'utangs-by-total')
+                .textContent = `${totalUtangs}`;
         }
 
         return utangDivId;

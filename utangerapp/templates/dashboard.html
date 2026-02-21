@@ -16,9 +16,9 @@
 {% block content %}
     <div>
         <h1 class="mb-5 text-2xl sm:text-4xl text-center font-bold">Welcome {{ user.username }}!</h1>
-        <div class="flex flex-col sm:flex-row items-center gap-4 mb-5">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-5">
             <div class="max-[320px]:w-full w-xs lg:w-lg">
-                <h3 class="text-sm sm:text-lg text-center bold">Utang to you: ₱₱₱</h3>
+                <h3 class="text-sm sm:text-lg text-center bold">Utangs to you: ₱<span id="utangs-to-total" class="underline"></span></h3>
                 <div class="flex justify-center align-center">
                     <button id="add-utang1-toggle1" class="m-2 pb-1 pl-5 pr-5 text-sm sm:text-base text-center text-green-500 border-2 rounded border-green-500 cursor-pointer" title="Add Utang">+</button>
                 </div>
@@ -32,7 +32,7 @@
                         <table>
                             <tr>
                                 <td><input id="utang1-name" name="name" type="text" placeholder="Name" class="m-1 p-1 w-9/10 text-xs sm:text-sm rounded bg-gray-600"></td>
-                                <td><input id="utang1-amount" name="amount" type="number" step="0.01" placeholder="Amount" class="m-1 p-1 w-9/10 text-xs sm:text-sm rounded bg-gray-600"></td>
+                                <td><input id="utang1-amount" name="amount" type="number" step="0.01" min="0.01" max="100000" placeholder="Amount" class="m-1 p-1 w-9/10 text-xs sm:text-sm rounded bg-gray-600"></td>
                             </tr>
                             <tr>
                                 <td><input id="utang1-email" name="email" type="email" placeholder="Email" class="m-1 p-1 w-9/10 text-xs sm:text-sm rounded bg-gray-600"></td>
@@ -49,7 +49,7 @@
                 <div id="utangs-to-user" class="m-2 p-2 text-sm sm:text-base border-2 rounded border-white text-gray-800"></div>
             </div>
             <div class="max-[320px]:w-full w-xs lg:w-lg">
-                <h3 class="text-sm sm:text-lg text-center bold">Utang by you: ₱₱₱</h3>
+                <h3 class="text-sm sm:text-lg text-center bold">Utang by you: ₱<span id="utangs-by-total" class="underline"></span></h3>
                 <div class="flex justify-center align-center">
                     <button id="add-utang2-toggle1" class="m-2 pb-1 pl-5 pr-5 text-sm sm:text-base text-center text-green-500 border-2 rounded border-green-500 cursor-pointer" title="Add Utang">+</button>
                 </div>
@@ -63,7 +63,7 @@
                         <table>
                             <tr>
                                 <td><input id="utang2-name" name="name" type="text" placeholder="Name" class="m-1 p-1 w-9/10 text-xs sm:text-sm rounded bg-gray-600"></td>
-                                <td><input id="utang2-amount" name="amount" type="number" step="0.01" placeholder="Amount" class="m-1 p-1 w-9/10 text-xs sm:text-sm rounded bg-gray-600"></td>
+                                <td><input id="utang2-amount" name="amount" type="number" step="0.01" min="0.01" max="100000" placeholder="Amount" class="m-1 p-1 w-9/10 text-xs sm:text-sm rounded bg-gray-600"></td>
                             </tr>
                         </table>
                         <div class="flex justify-center align-center">
